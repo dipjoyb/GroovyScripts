@@ -21,6 +21,9 @@ def call(Map pipelineArgs)
                     }   
 
                 steps{
+                    sh 'RUN apk add --no-cache nodejs npm'
+                    sh 'WORKDIR /app'
+                    sh 'COPY . /app'
                     sh 'npm install'
                 }
             }
