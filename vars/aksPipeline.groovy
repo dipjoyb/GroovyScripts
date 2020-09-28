@@ -1,17 +1,6 @@
 def call(){   
     stage("Run Unit Test"){
-        def RESPONSE = checkUnitTestExists()
-        if("${RESPONSE}"=="A"){
-            def CONTINUE_ON_RUN_FAIL = runUnitTest()
-            if("${CONTINUE_ON_RUN_FAIL}"==false){
-                echo "Aborting Pipeline..."
-                currentBuild.result = 'ABORTED'
-            }
-        }
-        else if("${RESPONSE}"=="N"){
-            echo "Aborting Pipeline..."
-            currentBuild.result = 'ABORTED'
-        }
+        echo"Running Unit Test"
     }
     stage("Docker Build"){   
 
