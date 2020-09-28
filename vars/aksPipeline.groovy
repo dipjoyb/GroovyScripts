@@ -1,9 +1,7 @@
 def call(){   
     stage("Run Unit Test"){
         echo"Running Unit Test"
-    }
-    stage 'Checkout'
-       git 'ssh://git@github.com:dipjoyb/testPipelineDipjoy.git'
+    }    
 
     stage 'Docker build'
        docker.build('byjenkins')
