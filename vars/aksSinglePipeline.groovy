@@ -5,10 +5,14 @@ def call(Map pipelineArgs)
 
     pipeline{
 
-       agent any 
+        agent{
+            node{
+                label "master"
+            }
+        }
 
-        stages{  
-           
+        stages{
+
             stage("Pipeline Start"){
                 environment{
                     APPLICATION_NAME = "${applicationName}"                  

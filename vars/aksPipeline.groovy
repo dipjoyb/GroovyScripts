@@ -1,9 +1,6 @@
-def call(){    
-
+def call(){   
     stage("Run Unit Test"){
-        steps{
-                sh 'npm test'
-            }
+        echo"Running Unit Test"
     }    
 
     stage 'Docker build'
@@ -14,3 +11,4 @@ def call(){
        docker.image('byjenkins').push('latest')
     }
 }
+
