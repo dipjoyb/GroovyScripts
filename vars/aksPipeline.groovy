@@ -1,4 +1,10 @@
-def call(){   
+def call(){ 
+    stage("Build Application"){
+        steps {
+            sh 'npm install'
+        }
+    }   
+
     stage("Run Unit Test"){
         echo"Running Unit Test"
     }    
