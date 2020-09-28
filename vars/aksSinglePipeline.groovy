@@ -10,8 +10,7 @@ def call(Map pipelineArgs)
                 label "master"
             }
         }        
-    }
-
+    
         stages{
 
             stage("Pipeline Start"){
