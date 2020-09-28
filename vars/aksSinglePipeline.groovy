@@ -5,33 +5,32 @@ def call(Map pipelineArgs)
 
     pipeline{
 
-        
-    
-        stages{
+        agent{
+            node{
+                label "master"
+            }
+        }
 
+        stages{
             stage("Build Application"){
-            agent{
-                docker{
-                image 'alpine:latest'
-                args '-p 3000:3000'
+                agent{
+                     docker{
+                            image 'alpine:latest'
+                            args '-p 3000:3000'
+                        }
+                    }   
+
+                steps{
+                    sh 'npm install'
                 }
-            }           
-            steps {
-                 sh 'npm install'
-                }
-            }   
+            }
+
 
             stage("Pipeline Start"){
                 environment{
                     APPLICATION_NAME = "${applicationName}"                  
                     CONTINUE_PIPELINE = true
                 }
-            agent{
-                node{
-                label "master"
-                }
-            }        
-
 
                 steps{
                     aksPipeline()
