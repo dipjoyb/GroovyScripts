@@ -1,15 +1,4 @@
-def call(){ 
-    stage("Build Application"){
-        agent{
-            docker{
-                image 'alpine:latest'
-                args '-p 3000:3000'
-            }
-        }    
-        steps {
-            sh 'npm install'
-        }
-    }   
+def call(){     
 
     stage("Run Unit Test"){
         echo"Running Unit Test"
