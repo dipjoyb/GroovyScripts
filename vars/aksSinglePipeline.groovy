@@ -1,10 +1,7 @@
 def call(Map pipelineArgs)
 {
-    def applicationName = pipelineArgs.projectName ?: "default"
+    def applicationName = pipelineArgs.projectName ?: "default"    
 
-
-    
-    def dockerArtifactory = 416764473985.dkr.ecr.us-east-1.amazonaws.com/byjenkins:latest
 
     pipeline{
 
@@ -18,8 +15,7 @@ def call(Map pipelineArgs)
 
             stage("Pipeline Start"){
                 environment{
-                    APPLICATION_NAME = "${applicationName}"                    
-                    DOCKER_ARTIFACTORY = "${dockerArtifactory}"                    
+                    APPLICATION_NAME = "${applicationName}"                  
                     CONTINUE_PIPELINE = true
                 }
 
