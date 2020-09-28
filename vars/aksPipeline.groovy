@@ -1,7 +1,9 @@
 def call(){    
 
     stage("Run Unit Test"){
-        echo"Running Unit Test"
+        steps{
+                sh 'npm test'
+            }
     }    
 
     stage 'Docker build'
