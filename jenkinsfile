@@ -1,0 +1,5 @@
+@Library('test-pipeline@master')
+aksSinglePipeline(
+  projectName: "devops-nodejs" 
+  
+)
