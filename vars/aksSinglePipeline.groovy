@@ -15,7 +15,7 @@ def call(Map pipelineArgs)
             stage("Build Application"){
                 agent{
                      docker{
-                            image 'alpine:latest'
+                            image 'node:6-alpine'
                             args '-p 3000:3000'
                         }
                     }   
